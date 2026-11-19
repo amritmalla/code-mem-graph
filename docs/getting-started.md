@@ -9,7 +9,7 @@ maintainer input; the tool reports missing knowledge instead of inventing it.
 
 ## Install this source version
 
-Use Python 3.11+ in a working environment. From this tool's checkout:
+Use Python 3.11–3.13 in a working environment (Python 3.14+ is not currently supported due to dependency wheel availability). From this tool's checkout:
 
 ```powershell
 python -m pip install .

@@ -2,13 +2,32 @@
 
 ## Development setup
 
-Use Python 3.11–3.13 and a fresh virtual environment:
+Use Python 3.11–3.13 and a fresh virtual environment (Python 3.14+ is not currently supported due to dependency wheel availability):
 
 ```bash
-python -m venv .venv
-# Activate the environment for your operating system.
+# Windows (PowerShell with py launcher):
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -e ".[dev]"
+
+# Linux / macOS:
+python3.12 -m venv .venv
+source .venv/bin/activate
 python -m pip install -e ".[dev]"
 ```
+
+Alternatively, `uv` provides significantly faster installation on Windows:
+
+```powershell
+uv venv --python 3.12 .venv
+uv pip install -e ".[dev]"
+```
+
+### Windows requirements and notes
+
+- Supported Python versions: 3.11, 3.12, and 3.13 (64-bit). Ensure your default `python` does not resolve to an unsupported prerelease (e.g., Python 3.14).
+- Binary wheels: Pre-built binary wheels on PyPI have been verified locally on Windows 11 x86_64 for CPython 3.11.15, 3.12.9, and 3.13.5 without requiring Visual Studio or C++ build tools. Other Windows architectures (e.g., ARM64) or non-standard Python distributions have not been verified and may require a C++ build toolchain or lack compatible binary wheels.
+- PowerShell script execution: If `.venv\Scripts\Activate.ps1` is restricted by execution policy, run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned` or invoke `.venv\Scripts\python.exe` directly.
 
 Optional provider integrations use the `openai`, `voyage` and `anthropic` extras.
 The knowledge-only workflow does not require an embedding model or provider key.
@@ -88,6 +107,9 @@ python -m twine check --strict dist/*
 ```
 
 Use fresh environments for installed-wheel and source-distribution checks.
-The repository currently has no hosted CI workflow. Local verification does not
-establish that every runtime/platform works. Publishing and credentials are
-separate from building a source bundle; the scripts do not publish.
+Automated CI (`.github/workflows/ci.yml`) runs on push and pull requests, covering
+Python 3.11, 3.12, and 3.13 on Ubuntu and Windows with lint, default tests, package
+building, distribution checks, and installed-package verification without source-tree imports.
+Model downloads and slow watcher tests run separately via `.github/workflows/model-download.yml`.
+Neither workflow exercises live paid providers.
+Publishing and credentials are separate from building a source bundle; the scripts and CI do not publish.

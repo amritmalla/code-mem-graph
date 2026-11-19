@@ -3,6 +3,9 @@
 Start with the [project README](../README.md) for the purpose and quick start.
 These guides describe the repository's current behavior and operating practices.
 
+The [release readiness implementation plan](release-readiness-plan.md) separately
+tracks proposed work and acceptance criteria for implementation and verification.
+
 | Guide | Contents |
 |---|---|
 | [Getting started](getting-started.md) | Install, initialize a target project, connect an agent and troubleshoot setup. |
