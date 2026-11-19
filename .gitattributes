@@ -1,0 +1,7 @@
+# Knowledge fixtures use byte fingerprints that must match on every platform.
+tests/fixtures/knowledge/** text eol=lf
+tests/fixtures/onboarding/** text eol=lf
+tests/fixtures/validation/** text eol=lf
+tests/fixtures/evaluation/** text eol=lf
+# Generated knowledge uses canonical LF serialization; source evidence hashes bytes.
+.project-knowledge/** text eol=lf

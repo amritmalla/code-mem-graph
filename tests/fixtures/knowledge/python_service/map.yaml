@@ -1,0 +1,135 @@
+schema_version: 1
+repository_id: parcel-service-fixture
+generated:
+  components:
+  - id: service
+    name: Parcel service
+    paths:
+    - src/parcel
+    parent_id: null
+    lifecycle: active
+  items:
+  - id: project/purpose
+    topic: overview
+    facets: []
+    title: Parcel fixture
+    statement: This fictional Python service provides a health endpoint.
+    origin: generated
+    basis: documented
+    author: null
+    generator:
+      name: hand-assembled-contract-fixture
+      version: '1'
+    component_ids:
+    - service
+    evidence:
+    - kind: file
+      path: README.md
+      digest: c613527f94985dbf4dcdb0271a61ece4df6a9cacbdcc8af05492e80e2c3110bf
+      policy_digest: e72b138b64deb7a923a18fddc06aab4f75d2614fb6c9ff370e4364d97b718258
+      start_line: null
+      end_line: null
+    dependencies: []
+    critical: false
+    lifecycle: active
+    review:
+      status: unreviewed
+      reviewer: null
+      content_digest: null
+      note: null
+  - id: service/entrypoint
+    topic: architecture
+    facets: []
+    title: Health implementation
+    statement: src/parcel/app.py defines the health function in the service package.
+    origin: generated
+    basis: observed
+    author: null
+    generator:
+      name: hand-assembled-contract-fixture
+      version: '1'
+    component_ids:
+    - service
+    evidence:
+    - kind: file
+      path: src/parcel/app.py
+      digest: 007484232d8389090d1e0910240afa29bfb7577bf493ffe9959284fa84432c93
+      policy_digest: e72b138b64deb7a923a18fddc06aab4f75d2614fb6c9ff370e4364d97b718258
+      start_line: 4
+      end_line: 5
+    - kind: directory
+      path: src
+      digest: c5174cae64a12bf1b9e4f4c81a898383e8eddb0c5eef6a31243163efdf3e5848
+      policy_digest: e72b138b64deb7a923a18fddc06aab4f75d2614fb6c9ff370e4364d97b718258
+      recursive: true
+    dependencies: []
+    critical: false
+    lifecycle: active
+    review:
+      status: unreviewed
+      reviewer: null
+      content_digest: null
+      note: null
+  - id: architecture/service-boundary
+    topic: architecture
+    facets: []
+    title: Service boundary
+    statement: The health function is the fixture service boundary; broader responsibilities
+      require maintainer input.
+    origin: generated
+    basis: inferred
+    author: null
+    generator:
+      name: hand-assembled-contract-fixture
+      version: '1'
+    component_ids:
+    - service
+    evidence: []
+    dependencies:
+    - item_id: service/entrypoint
+      content_digest: bc505c0ea84c76c8aa592bbae3c475cfb6c40b03e075d400437df401e79d7b20
+    critical: false
+    lifecycle: active
+    review:
+      status: unreviewed
+      reviewer: null
+      content_digest: null
+      note: null
+  gaps:
+  - id: workflow/release-approver
+    topic: workflow
+    description: No release approver is documented in this fictional fixture.
+    component_ids: []
+    status: open
+    resolved_by: []
+  conflicts: []
+curated:
+  components: []
+  items:
+  - id: decision/health-isolation
+    topic: decision
+    facets: []
+    title: Fixture isolation
+    statement: Keep the fixture health function dependency-free so contract tests
+      need no external service.
+    origin: maintainer
+    basis: maintainer
+    author: fictional-fixture-maintainer
+    generator: null
+    component_ids: []
+    evidence: []
+    dependencies:
+    - item_id: service/entrypoint
+      content_digest: bc505c0ea84c76c8aa592bbae3c475cfb6c40b03e075d400437df401e79d7b20
+    critical: false
+    lifecycle: active
+    review:
+      status: accepted
+      reviewer: fictional-fixture-maintainer
+      content_digest: 6f5721e37f2cc00a0d09d15b7eb02ec4b07c54e31e7757f57400d196da2a0ce4
+      note: Synthetic example, not a production decision.
+  gaps: []
+  conflicts: []
+refresh:
+  status: ready
+  error: null

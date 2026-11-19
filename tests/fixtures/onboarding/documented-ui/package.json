@@ -1,0 +1,11 @@
+{
+  "name": "fictional-quote-review",
+  "private": true,
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-11-17",
+  "scope": "Pinned partial upstream snapshots; not complete or executable checkouts. No upstream code is executed. Vite template is rebased to a fixture root.",
+  "repositories": [
+    {
+      "fixture": "fastapi-service",
+      "repository": "https://github.com/fastapi/full-stack-fastapi-template",
+      "revision": "77e550a73bb49dd2967622c5ed11bf7a49603c93",
+      "license_path": "fastapi-service/LICENSE",
+      "files": [
+        {
+          "path": "README.md",
+          "upstream_path": "README.md",
+          "url": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/77e550a73bb49dd2967622c5ed11bf7a49603c93/README.md",
+          "sha256": "0efd6a53be63b7de181bff854f601a87e6be5b4ab39e69ad696505122455931d",
+          "bytes": 3193
+        },
+        {
+          "path": "LICENSE",
+          "upstream_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/77e550a73bb49dd2967622c5ed11bf7a49603c93/LICENSE",
+          "sha256": "0bd4e76cdd06ab24cce2de5e74f490920897f90a22ad35e8403ed006d4560f48",
+          "bytes": 1076
+        },
+        {
+          "path": "backend/README.md",
+          "upstream_path": "backend/README.md",
+          "url": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/77e550a73bb49dd2967622c5ed11bf7a49603c93/backend/README.md",
+          "sha256": "e0812ad9a9804fd4f0270b8eefbf18da530391ede13a193e13fef0e134ed1cf1",
+          "bytes": 5039
+        },
+        {
+          "path": "backend/pyproject.toml",
+          "upstream_path": "backend/pyproject.toml",
+          "url": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/77e550a73bb49dd2967622c5ed11bf7a49603c93/backend/pyproject.toml",
+          "sha256": "a4fdc75ae9c47e77dd70c3460a4a3a83545def601650786df386976b49da892e",
+          "bytes": 1897
+        },
+        {
+          "path": "backend/app/models.py",
+          "upstream_path": "backend/app/models.py",
+          "url": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/77e550a73bb49dd2967622c5ed11bf7a49603c93/backend/app/models.py",
+          "sha256": "4696396c84832a50ca9d60337c2b6ba24e961f2ee5b5e660d8081fb929ebf459",
+          "bytes": 3477
+        },
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "upstream_path": "backend/app/api/routes/utils.py",
+          "url": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/77e550a73bb49dd2967622c5ed11bf7a49603c93/backend/app/api/routes/utils.py",
+          "sha256": "5e77b59fab0bfcb1cef581938dcc8a47afb7518664a497763d4c50711898e925",
+          "bytes": 783
+        },
+        {
+          "path": "backend/tests/api/routes/test_items.py",
+          "upstream_path": "backend/tests/api/routes/test_items.py",
+          "url": "https://raw.githubusercontent.com/fastapi/full-stack-fastapi-template/77e550a73bb49dd2967622c5ed11bf7a49603c93/backend/tests/api/routes/test_items.py",
+          "sha256": "be711def80eb52caeb1f2b0d9a933e294ea4f2f798ae2dc8924fb41fdda5528a",
+          "bytes": 5165
+        }
+      ]
+    },
+    {
+      "fixture": "vite-frontend",
+      "repository": "https://github.com/vitejs/vite",
+      "revision": "dbce0c6715f26ae602ebf983f87f153a3a8a6e60",
+      "license_path": "vite-frontend/LICENSE",
+      "files": [
+        {
+          "path": "README.md",
+          "upstream_path": "packages/create-vite/template-react-ts/README.md",
+          "url": "https://raw.githubusercontent.com/vitejs/vite/dbce0c6715f26ae602ebf983f87f153a3a8a6e60/packages/create-vite/template-react-ts/README.md",
+          "sha256": "fa8aac78b8be1993010b57f41000a243ecba006f6731513fe4ec91e788bf2517",
+          "bytes": 1278
+        },
+        {
+          "path": "package.json",
+          "upstream_path": "packages/create-vite/template-react-ts/package.json",
+          "url": "https://raw.githubusercontent.com/vitejs/vite/dbce0c6715f26ae602ebf983f87f153a3a8a6e60/packages/create-vite/template-react-ts/package.json",
+          "sha256": "60c5651cb69fab28df1922bfe2010eb31995d7c0bcba0698cd481e3f73dc92ac",
+          "bytes": 547
+        },
+        {
+          "path": "src/App.tsx",
+          "upstream_path": "packages/create-vite/template-react-ts/src/App.tsx",
+          "url": "https://raw.githubusercontent.com/vitejs/vite/dbce0c6715f26ae602ebf983f87f153a3a8a6e60/packages/create-vite/template-react-ts/src/App.tsx",
+          "sha256": "c7184fc9b1c36d7492093e1b5f5844c440bd3396deeace21b6699d3838f6ecb2",
+          "bytes": 3646
+        },
+        {
+          "path": "src/main.tsx",
+          "upstream_path": "packages/create-vite/template-react-ts/src/main.tsx",
+          "url": "https://raw.githubusercontent.com/vitejs/vite/dbce0c6715f26ae602ebf983f87f153a3a8a6e60/packages/create-vite/template-react-ts/src/main.tsx",
+          "sha256": "6e9e5807fcbd48b75a96db5cbef36c996262196be42e6d4760dc86babbe61ad2",
+          "bytes": 230
+        },
+        {
+          "path": "vite.config.ts",
+          "upstream_path": "packages/create-vite/template-react-ts/vite.config.ts",
+          "url": "https://raw.githubusercontent.com/vitejs/vite/dbce0c6715f26ae602ebf983f87f153a3a8a6e60/packages/create-vite/template-react-ts/vite.config.ts",
+          "sha256": "e1eefd0ed1639c88d1213884ef760516884db9e168190e223fee6b063ad3e088",
+          "bytes": 161
+        },
+        {
+          "path": "LICENSE",
+          "upstream_path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/vitejs/vite/dbce0c6715f26ae602ebf983f87f153a3a8a6e60/LICENSE",
+          "sha256": "692057af3d664cbb79ac38293eb50aa3c4987f8182e2a440136e59e08f1b4a54",
+          "bytes": 1101
+        }
+      ]
+    }
+  ]
+}

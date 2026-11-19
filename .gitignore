@@ -1,0 +1,44 @@
+# Local project records, agent settings and generated self-knowledge.
+/.local/
+/.claude/
+/.codex/
+/.mcp.json
+/.claude-repo-mem/
+/.project-knowledge/
+
+# Python environments, caches and generated output.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage*
+htmlcov/
+coverage.xml
+build/
+dist/
+*.spec
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+
+# Local secrets; example environment templates may be shared.
+.env
+.env.*
+!.env.example
+
+# Local evaluation runs, reports and historical records.
+# The versioned regression corpus lives in tests/fixtures/evaluation/.
+/evaluation/
+
+# Historical planning/implementation records belong in .local/.
+/docs/product/
+/examples/onboarding/
+
+# Operating-system metadata.
+.DS_Store
+Thumbs.db

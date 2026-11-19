@@ -1,0 +1,118 @@
+# Current-layout corpus; capture an exact snapshot before any new trial.
+# Previous corpora are retained in ignored local project records.
+schema_version: 1
+id: repository-onboarding-v4
+protocol:
+  id: discovery-pilot-v1
+  # Experimental stopping ceilings, NOT orientation/context token defaults.
+  max_tool_calls: 40
+  max_model_turns: 20
+  max_elapsed_ms: 600000.0
+  stopping_rule: >-
+    Stop when the agent submits its answer or reaches any ceiling. Preserve
+    failures, interruptions, and all interaction events. Review the final answer
+    against every criterion; the review rubric is not part of the agent prompt.
+repositories:
+  - id: code-mem-graph-working-tree
+    revision: working-tree-public-repository-20261119
+tasks:
+  - id: orient-new-engineer
+    repository_id: code-mem-graph-working-tree
+    category: orientation
+    prompt: >-
+      Explain what this project does, how an agent connects to it, its main
+      components, and how a new engineer should validate a change. Cite evidence.
+    criteria:
+      - id: purpose-and-connection
+        description: Explain repository knowledge, explicit-cap agent context, memory and their MCP/CLI entry points.
+        critical: true
+        source_refs: [README.md, pyproject.toml, src/code_mem_graph/mcp.py, src/code_mem_graph/engine/server.py]
+      - id: components-and-validation
+        description: Identify indexing, storage, retrieval, and documented development checks.
+        critical: true
+        source_refs: [docs/architecture.md, CONTRIBUTING.md]
+    acceptance_checks: {}
+  - id: indexing-to-recall
+    repository_id: code-mem-graph-working-tree
+    category: architecture
+    prompt: >-
+      Trace a source file from indexing to a recall result. Identify ownership
+      boundaries, persisted state, and where evidence is expanded. Cite source.
+    criteria:
+      - id: ingestion-path
+        description: Trace walking, parsing, orchestration, persistence, and incremental updates.
+        critical: true
+        source_refs: [src/code_mem_graph/engine/indexer/orchestrator.py, src/code_mem_graph/engine/indexer/incremental.py, docs/architecture.md]
+      - id: retrieval-path
+        description: Explain retrieval ranking/filling and expand versus recall responsibilities.
+        critical: true
+        source_refs: [src/code_mem_graph/engine/retrieval/recall.py, src/code_mem_graph/engine/retrieval/fill.py, src/code_mem_graph/engine/tools/expand.py]
+    acceptance_checks: {}
+  - id: propose-mcp-tool
+    repository_id: code-mem-graph-working-tree
+    category: change
+    prompt: >-
+      Propose where to implement and register a read-only MCP tool that reports
+      project knowledge freshness. Identify an existing tool to follow, applicable
+      repository scoping, docs to update, and tests. Do not edit files.
+    criteria:
+      - id: implementation-and-registration
+        description: Identify tool implementation, server registration/schema, and root/scope handling.
+        critical: true
+        source_refs: [src/code_mem_graph/engine/tools/stats.py, src/code_mem_graph/engine/server.py]
+      - id: validation-and-docs
+        description: Name relevant server/tool tests and user-facing tool documentation.
+        critical: false
+        source_refs: [tests, docs/tools.md, CONTRIBUTING.md]
+    acceptance_checks: {}
+  - id: unicode-parser-change
+    repository_id: code-mem-graph-working-tree
+    category: conventions
+    prompt: >-
+      Explain how to safely change source extraction for non-ASCII identifiers.
+      Locate parser interfaces, a representative implementation, and regression
+      coverage. Distinguish documented conventions from patterns you observe.
+    criteria:
+      - id: parser-contract
+        description: Identify parser interface and the Tree-sitter byte-offset/UTF-8 extraction boundary.
+        critical: true
+        source_refs: [src/code_mem_graph/engine/indexer/parsers/base.py, src/code_mem_graph/engine/indexer/parsers/code_python.py]
+      - id: regression-and-practices
+        description: Locate Unicode parser regressions and cite documented test practices without inventing policy.
+        critical: true
+        source_refs: [tests, CONTRIBUTING.md]
+    acceptance_checks: {}
+  - id: durable-memory-lifecycle
+    repository_id: code-mem-graph-working-tree
+    category: workflow
+    prompt: >-
+      Explain how a maintainer records, retrieves, and removes a durable decision.
+      Identify scope and file/index behavior, including what survives rebuilding
+      the index. Cite implementation and user documentation.
+    criteria:
+      - id: durable-authority
+        description: Distinguish authored memory files from rebuildable index state and explain remember behavior.
+        critical: true
+        source_refs: [src/code_mem_graph/engine/tools/remember.py, docs/usage.md, docs/architecture.md]
+      - id: retrieve-and-forget
+        description: Explain recall, scope boundaries, and forget behavior with relevant evidence.
+        critical: true
+        source_refs: [src/code_mem_graph/engine/tools/recall.py, src/code_mem_graph/engine/tools/forget.py, docs/tools.md]
+    acceptance_checks: {}
+  - id: release-and-unknown-approval
+    repository_id: code-mem-graph-working-tree
+    category: missing-evidence
+    prompt: >-
+      Describe the implemented release process and determine who must approve
+      production releases. Identify which parts are proven by repository files
+      and which require external settings or maintainer confirmation.
+    criteria:
+      - id: implemented-release
+        description: Explain documented local regression/distribution checks and distinguish these from absent hosted automation or publishing.
+        critical: true
+        source_refs: [docs/verification.md, CONTRIBUTING.md]
+      - id: approval-unknown
+        description: Do not invent approvers; environment protection and account settings are external to these files.
+        critical: true
+        source_refs: [docs/verification.md, CONTRIBUTING.md]
+    acceptance_checks: {}

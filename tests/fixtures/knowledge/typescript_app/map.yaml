@@ -1,0 +1,105 @@
+schema_version: 1
+repository_id: parcel-dashboard-fixture
+generated:
+  components:
+  - id: web
+    name: Parcel dashboard
+    paths:
+    - src
+    parent_id: null
+    lifecycle: active
+  items:
+  - id: workflow/node-documented
+    topic: workflow
+    facets: []
+    title: Documented Node runtime
+    statement: The README documents Node.js 20 for development.
+    origin: generated
+    basis: documented
+    author: null
+    generator:
+      name: hand-assembled-contract-fixture
+      version: '1'
+    component_ids:
+    - web
+    evidence:
+    - kind: file
+      path: README.md
+      digest: f11b539688cd07587a2cca7f7eef4515bfa2930d59523fc118c7def650ab5aa8
+      policy_digest: e72b138b64deb7a923a18fddc06aab4f75d2614fb6c9ff370e4364d97b718258
+      start_line: null
+      end_line: null
+    dependencies: []
+    critical: true
+    lifecycle: active
+    review:
+      status: unreviewed
+      reviewer: null
+      content_digest: null
+      note: null
+  - id: workflow/node-manifest
+    topic: workflow
+    facets: []
+    title: Declared Node engine
+    statement: package.json declares a Node.js engine requirement of >=22.
+    origin: generated
+    basis: observed
+    author: null
+    generator:
+      name: hand-assembled-contract-fixture
+      version: '1'
+    component_ids:
+    - web
+    evidence:
+    - kind: file
+      path: package.json
+      digest: d68d4012ace1a21f429ee7f832bc450c5549b9f68eb1ff3bb2de02143f763bfe
+      policy_digest: e72b138b64deb7a923a18fddc06aab4f75d2614fb6c9ff370e4364d97b718258
+      start_line: null
+      end_line: null
+    dependencies: []
+    critical: true
+    lifecycle: active
+    review:
+      status: unreviewed
+      reviewer: null
+      content_digest: null
+      note: null
+  gaps: []
+  conflicts:
+  - id: workflow/node-runtime
+    item_ids:
+    - workflow/node-documented
+    - workflow/node-manifest
+    description: README runtime and package engine disagree.
+    status: unresolved
+    resolution: null
+    resolved_by: null
+    resolved_versions: {}
+curated:
+  components: []
+  items:
+  - id: domain/parcel
+    topic: domain
+    facets: []
+    title: Parcel terminology
+    statement: Parcel means a fictional shipment in this contract fixture.
+    origin: maintainer
+    basis: maintainer
+    author: fictional-fixture-maintainer
+    generator: null
+    component_ids: []
+    evidence: []
+    dependencies: []
+    critical: false
+    lifecycle: active
+    review:
+      status: accepted
+      reviewer: fictional-fixture-maintainer
+      content_digest: fd64cb8ba2d908fcf8baeaa14a228dda9441d6bf896eb21b3b03491ac6f9f827
+      note: null
+  gaps: []
+  conflicts: []
+refresh:
+  status: ready
+  error: null
